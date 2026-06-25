@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal, Stagger, staggerItem } from "@/components/motion/Reveal";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import locationImg from "@/assets/Location_section.png";
 import { locations } from "@/data/locations";
 
 export const Route = createFileRoute("/locations")({
@@ -34,6 +35,8 @@ function Locations() {
         eyebrow="Our Locations"
         title="Find care close to home"
         description="Our clinics are located within the heart of the communities we serve. Reach out to the location most convenient for you."
+        imageSrc={locationImg}
+        imageAlt="Clinic location and healthcare team"
       />
 
       <section className="section-container py-16 md:py-24">

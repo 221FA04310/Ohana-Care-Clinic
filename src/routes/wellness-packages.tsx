@@ -4,6 +4,7 @@ import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { WellnessCard } from "@/components/cards/WellnessCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import heroImg from "@/assets/Wellness_section.png";
 import { wellnessPackages } from "@/data/wellness";
 
 export const Route = createFileRoute("/wellness-packages")({
@@ -34,6 +35,8 @@ function Wellness() {
         eyebrow="Wellness Packages"
         title="Invest in staying well"
         description="Comprehensive, preventive health packages that bring consultation, laboratory testing and screening together in one clear programme."
+        imageSrc={heroImg}
+        imageAlt="Wellness care consultation"
       />
 
       <section className="section-container py-16 md:py-24">

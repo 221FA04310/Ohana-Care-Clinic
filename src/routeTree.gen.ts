@@ -18,6 +18,8 @@ import { Route as DoctorsRouteImport } from './routes/doctors'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesWomensHealthRouteImport } from './routes/services.womens-health'
+import { Route as ServicesDiabetesCareRouteImport } from './routes/services.diabetes-care'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as DoctorsIdRouteImport } from './routes/doctors.$id'
 
@@ -66,6 +68,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesWomensHealthRoute = ServicesWomensHealthRouteImport.update({
+  id: '/womens-health',
+  path: '/womens-health',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesDiabetesCareRoute = ServicesDiabetesCareRouteImport.update({
+  id: '/diabetes-care',
+  path: '/diabetes-care',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -89,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/wellness-packages': typeof WellnessPackagesRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/diabetes-care': typeof ServicesDiabetesCareRoute
+  '/services/womens-health': typeof ServicesWomensHealthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +116,8 @@ export interface FileRoutesByTo {
   '/wellness-packages': typeof WellnessPackagesRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/diabetes-care': typeof ServicesDiabetesCareRoute
+  '/services/womens-health': typeof ServicesWomensHealthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +132,8 @@ export interface FileRoutesById {
   '/wellness-packages': typeof WellnessPackagesRoute
   '/doctors/$id': typeof DoctorsIdRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/diabetes-care': typeof ServicesDiabetesCareRoute
+  '/services/womens-health': typeof ServicesWomensHealthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +149,8 @@ export interface FileRouteTypes {
     | '/wellness-packages'
     | '/doctors/$id'
     | '/services/$slug'
+    | '/services/diabetes-care'
+    | '/services/womens-health'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +164,8 @@ export interface FileRouteTypes {
     | '/wellness-packages'
     | '/doctors/$id'
     | '/services/$slug'
+    | '/services/diabetes-care'
+    | '/services/womens-health'
   id:
     | '__root__'
     | '/'
@@ -157,6 +179,8 @@ export interface FileRouteTypes {
     | '/wellness-packages'
     | '/doctors/$id'
     | '/services/$slug'
+    | '/services/diabetes-care'
+    | '/services/womens-health'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -236,6 +260,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/womens-health': {
+      id: '/services/womens-health'
+      path: '/womens-health'
+      fullPath: '/services/womens-health'
+      preLoaderRoute: typeof ServicesWomensHealthRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/diabetes-care': {
+      id: '/services/diabetes-care'
+      path: '/diabetes-care'
+      fullPath: '/services/diabetes-care'
+      preLoaderRoute: typeof ServicesDiabetesCareRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -266,10 +304,14 @@ const DoctorsRouteWithChildren =
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesDiabetesCareRoute: typeof ServicesDiabetesCareRoute
+  ServicesWomensHealthRoute: typeof ServicesWomensHealthRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesDiabetesCareRoute: ServicesDiabetesCareRoute,
+  ServicesWomensHealthRoute: ServicesWomensHealthRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(

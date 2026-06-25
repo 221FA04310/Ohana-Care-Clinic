@@ -5,6 +5,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { doctors } from "@/data/doctors";
+import heroImg from "@/assets/hero-care.jpg";
+
 
 export const Route = createFileRoute("/doctors/$id")({
   loader: ({ params }) => {
@@ -95,31 +97,40 @@ function DoctorProfile() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="sticky top-24 space-y-6">
-              <div className="rounded-3xl border border-border bg-card p-7 shadow-card">
-                <h3 className="text-lg font-bold text-foreground">At a glance</h3>
-                <ul className="mt-5 space-y-4">
-                  {facts.map((f) => (
-                    <li key={f.label} className="flex items-start gap-3">
-                      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-                        <f.icon className="size-4" />
-                      </span>
-                      <span>
-                        <span className="block text-xs uppercase tracking-wide text-muted-foreground">{f.label}</span>
-                        <span className="block text-sm font-semibold text-foreground">{f.value}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="grid gap-6">
+              <div className="overflow-hidden rounded-3xl border border-border shadow-card">
+                <img
+                  src={heroImg}
+                  alt="Doctor talking with a patient"
+                  className="h-72 w-full object-cover"
+                />
               </div>
-              <div className="rounded-3xl bg-gradient-primary p-7 text-primary-foreground shadow-glow">
-                <h3 className="text-lg font-bold">Book with {doctor.name.split(" ")[1]}</h3>
-                <p className="mt-2 text-sm text-primary-foreground/85">
-                  Appointment requests are handled by our care team through our contact channels.
-                </p>
-                <Button asChild variant="hero" className="mt-5 w-full">
-                  <Link to="/contact">Request Appointment</Link>
-                </Button>
+              <div className="sticky top-24 space-y-6">
+                <div className="rounded-3xl border border-border bg-card p-7 shadow-card">
+                  <h3 className="text-lg font-bold text-foreground">At a glance</h3>
+                  <ul className="mt-5 space-y-4">
+                    {facts.map((f) => (
+                      <li key={f.label} className="flex items-start gap-3">
+                        <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
+                          <f.icon className="size-4" />
+                        </span>
+                        <span>
+                          <span className="block text-xs uppercase tracking-wide text-muted-foreground">{f.label}</span>
+                          <span className="block text-sm font-semibold text-foreground">{f.value}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-3xl bg-gradient-primary p-7 text-primary-foreground shadow-glow">
+                  <h3 className="text-lg font-bold">Book with {doctor.name.split(" ")[1]}</h3>
+                  <p className="mt-2 text-sm text-primary-foreground/85">
+                    Appointment requests are handled by our care team through our contact channels.
+                  </p>
+                  <Button asChild variant="hero" className="mt-5 w-full">
+                    <Link to="/contact">Request Appointment</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </Reveal>

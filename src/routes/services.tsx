@@ -5,8 +5,21 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { CtaBanner } from "@/components/sections/CtaBanner";
-import heroImg from "@/assets/hero-care.jpg";
+import heroImg from "@/assets/Services_section.png";
 import { services } from "@/data/services";
+import {
+  Heart,
+  Pill,
+  Wind,
+  Cloud,
+  AlertCircle,
+  AlertTriangle,
+  Bone,
+  Zap,
+  Droplets,
+  Activity,
+  Brain,
+} from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -32,6 +45,20 @@ export const Route = createFileRoute("/services")({
 });
 
 function Services() {
+  const conditions = [
+    { name: "Hypertension", icon: Heart },
+    { name: "Diabetes", icon: Pill },
+    { name: "Asthma", icon: Wind },
+    { name: "COPD", icon: Cloud },
+    { name: "Allergies", icon: AlertCircle },
+    { name: "Migraine", icon: AlertTriangle },
+    { name: "Arthritis", icon: Bone },
+    { name: "Gastric Disorders", icon: Zap },
+    { name: "Liver Disorders", icon: Droplets },
+    { name: "Musculoskeletal Conditions", icon: Activity },
+    { name: "Neurological Conditions", icon: Brain },
+  ];
+
   return (
     <>
       <PageHero
@@ -55,24 +82,12 @@ function Services() {
             <SectionHeading eyebrow="Conditions" title="Conditions We Treat" description="Common conditions managed by our care teams." />
           </Reveal>
           <Stagger className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              "Hypertension",
-              "Diabetes",
-              "Asthma",
-              "COPD",
-              "Allergies",
-              "Migraine",
-              "Arthritis",
-              "Gastric Disorders",
-              "Liver Disorders",
-              "Musculoskeletal Conditions",
-              "Neurological Conditions",
-            ].map((c) => (
-              <motion.div key={c} className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-soft">
+            {conditions.map(({ name, icon: ConditionIcon }) => (
+              <motion.div key={name} className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-soft">
                 <span className="inline-flex size-9 items-center justify-center rounded-lg bg-secondary text-primary">
-                  {/* decorative */}
+                  <ConditionIcon className="size-5" />
                 </span>
-                <span className="text-sm font-medium text-foreground">{c}</span>
+                <span className="text-sm font-medium text-foreground">{name}</span>
               </motion.div>
             ))}
           </Stagger>

@@ -10,6 +10,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import contactImg from "@/assets/Contact_section.png";
 import {
   Form,
   FormControl,
@@ -95,6 +96,8 @@ function Contact() {
         eyebrow="Contact Us"
         title="We're here to help"
         description="Have a question or want to request an appointment? Send us a message and our care team will be in touch — no one left behind."
+        imageSrc={contactImg}
+        imageAlt="Contact our care team"
       />
 
       <section className="section-container py-16 md:py-24">

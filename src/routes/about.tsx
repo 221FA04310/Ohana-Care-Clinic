@@ -5,7 +5,9 @@ import { Reveal, Stagger, staggerItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { motion } from "framer-motion";
-import bannerImg from "@/assets/banner-family.jpeg";
+import bannerImg from "@/assets/About_section.png";
+import storyImg from "@/assets/Second_image.png";
+import heroImg from "@/assets/banner-family.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -43,6 +45,8 @@ function About() {
         eyebrow="About Ohana Care"
         title="Healthcare rooted in community and compassion"
         description="We exist to remove the barriers that keep families from quality healthcare — building a future where no one is left behind."
+        imageSrc={bannerImg}
+        imageAlt="Healthcare provider speaking with a family"
       />
 
       {/* Story */}
@@ -51,7 +55,7 @@ function About() {
           <Reveal>
             <div className="overflow-hidden rounded-3xl shadow-card">
               <img
-                src={bannerImg}
+                src={storyImg}
                 alt="An Ohana Care nurse with a family at home"
                 width={1920}
                 height={1080}

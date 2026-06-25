@@ -43,7 +43,7 @@ export function PageHero({ eyebrow, title, description, imageSrc, imageAlt, chil
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="overflow-hidden rounded-[2rem] shadow-glow">
+              <div className="min-h-[24rem] aspect-[4/3] overflow-hidden rounded-[2rem] shadow-glow sm:aspect-[16/10] sm:min-h-[28rem] lg:min-h-[32rem]">
                 <img
                   src={imageSrc}
                   alt={imageAlt ?? title}

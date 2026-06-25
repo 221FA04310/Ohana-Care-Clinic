@@ -69,13 +69,7 @@ export function SiteHeader() {
       >
         <div className="section-container flex items-center justify-between py-3">
           <Link to="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-            <img src={logo} alt="Ohana Care Clinic Africa" className="h-11 w-auto md:h-12" />
-            <div className="leading-tight">
-              <p className="font-display text-sm font-semibold tracking-wide text-primary">
-                Ohana Care Clinic Africa
-              </p>
-              <p className="eyebrow text-xs text-muted-foreground">No One Left Behind</p>
-            </div>
+            <img src={logo} alt="Ohana Care Clinic Africa" className="h-14 w-auto md:h-16" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

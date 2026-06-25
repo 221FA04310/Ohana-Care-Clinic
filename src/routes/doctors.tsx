@@ -8,6 +8,7 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { doctors, specializations } from "@/data/doctors";
+import DoctorImg from "@/assets/Doctor_section.png";
 
 export const Route = createFileRoute("/doctors")({
   head: () => ({
@@ -53,6 +54,8 @@ function Doctors() {
         eyebrow="Our Doctors"
         title="Caring clinicians, dedicated to your family"
         description="Browse our team of experienced doctors across general practice, family medicine, women's health, paediatrics and more."
+        imageSrc={DoctorImg}
+        imageAlt="Doctors and care team"
       />
 
       <section className="section-container py-12 md:py-16">
